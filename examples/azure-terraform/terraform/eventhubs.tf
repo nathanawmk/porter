@@ -7,6 +7,7 @@ resource "azurerm_eventhub_namespace" "hubs" {
 
   tags = {
     environment = "Production"
+    yor_trace   = "fbc00c31-e306-43c8-ac11-28abb3c9ef10"
   }
 }
 
