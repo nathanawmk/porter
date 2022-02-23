@@ -1,11 +1,11 @@
 resource "random_string" "password" {
-  length = 16
-  special = true
+  length           = 16
+  special          = true
   override_special = "/@£$"
 }
 
 resource "random_string" "name" {
-  length = 5
+  length  = 5
   special = false
 }
 
@@ -26,6 +26,9 @@ resource "azurerm_mysql_server" "bundle" {
   administrator_login_password = random_string.password.result
   version                      = "5.7"
   ssl_enforcement              = "Disabled"
+  tags = {
+    yor_trace = "ffbfd95a-8afc-40f9-bdb2-3b559dc08190"
+  }
 }
 
 resource "azurerm_mysql_database" "bundle" {

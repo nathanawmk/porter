@@ -1,6 +1,9 @@
 resource "azurerm_resource_group" "rg" {
   name     = var.resource_group_name
   location = var.resource_group_location
+  tags = {
+    yor_trace = "4a7916c9-aa89-4795-b845-11a5f0a7c24b"
+  }
 }
 
 resource "azurerm_cosmosdb_account" "db" {
@@ -27,6 +30,9 @@ resource "azurerm_cosmosdb_account" "db" {
     prefix            = "porterform-${azurerm_resource_group.rg.location}"
     location          = azurerm_resource_group.rg.location
     failover_priority = 0
+  }
+  tags = {
+    yor_trace = "e5f65ca8-3922-4fbf-97b9-d3a6b338a1b3"
   }
 }
 
